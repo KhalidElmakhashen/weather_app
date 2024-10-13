@@ -56,13 +56,13 @@ class WeatherCard extends StatelessWidget {
 }
 
 List<String> dayNames = [
-  'Sunday',
   'Monday',
   'Tuesday',
   'Wednesday',
   'Thursday',
   'Friday',
   'Saturday',
+  'Sunday',
 ];
 
 // ignore: must_be_immutable
@@ -81,7 +81,7 @@ class Card2 extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
-      color: (Day == dayNames[day.weekday]) ? const Color(0xFFa8bfd3) : Colors.white,
+      color: (Day == dayNames[day.weekday - 1]) ? const Color(0xFFa8bfd3) : Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Column(

@@ -39,7 +39,7 @@ class Home extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.topLeft,
-                  child: Text("${dayNames[Card2.day.weekday]}, ${Card2.day.day} ${months[Card2.day.month - 1]}",style: TextStyle(color: Colors.black.withOpacity(.5)))
+                  child: Text("${dayNames[Card2.day.weekday - 1]}, ${Card2.day.day} ${months[Card2.day.month - 1]}",style: TextStyle(color: Colors.black.withOpacity(.5)))
                   ),
 
               ],
