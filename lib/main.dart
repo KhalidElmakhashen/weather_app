@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/screens/home.dart';
-import 'package:weather_app/screens/onboarding_screen.dart';
-import 'package:weather_app/screens/splash_screen.dart';
-import 'package:weather_app/shared.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weatherapi/bloc/weather_bloc/weather_bloc.dart';
+import 'package:weatherapi/presentation/screens/main_screens/options.dart';
 
-import 'screens/options.dart';
+
+
+import 'locals/shared.dart';
+import 'presentation/screens/main_screens/home_screen.dart';
+import 'presentation/screens/start/onboarding_screen.dart';
+
+import 'presentation/screens/start/splash_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,33 +20,19 @@ void main() async{
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        routes:{
+      debugShowCheckedModeBanner: false,
+      routes: {
         '/': (context) => SplashScreen(),
         '/onboarding': (context) => OnboardingScreen(),
-        '/home': (context) => Home(),  
-        '/options': (context) => Options()
+        '/home': (context) => BlocProvider(
+              create: (context) => WeatherBloc()..add(FetchWeatherData()),
+              child: HomeScreen(),
+            ),
+        '/options': (context) => Options(),
       },
-        
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
