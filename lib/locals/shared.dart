@@ -39,6 +39,14 @@ static putString({required String key, required String value}){
     return sharedPreferences.getDouble(key)?? 0.0;
 }
 
+static putList({required String key, required List<String> value}){
+    sharedPreferences.setStringList(key, value);
+}
+
+static getList({required String key}){
+  return sharedPreferences.getStringList(key);
+}
+
 deleteData(){
     sharedPreferences.clear();
 }
