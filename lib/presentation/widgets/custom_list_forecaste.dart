@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:weatherapi/bloc/forecaste_bloc/forecaste_bloc.dart';
-import 'package:weatherapi/bloc/weather_bloc/weather_bloc.dart';
-import 'package:weatherapi/constants/functions.dart';
+import 'package:weatherapi/logic/bloc/forecaste_bloc/forecaste_bloc.dart';
+import 'package:weatherapi/logic/bloc/weather_bloc/weather_bloc.dart';
+import 'package:weatherapi/logic/utils/functions.dart';
 
 class CustomListForecaste extends StatelessWidget {
   const CustomListForecaste({super.key});

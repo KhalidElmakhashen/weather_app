@@ -16,9 +16,9 @@ class ForecasteBloc extends Bloc<ForecasteEvent, ForecasteState> {
         try {
           WeatherFactory wf = WeatherFactory("fd2512873cd195a083421bb63164cbca", language: Language.DANISH);
           List<Weather> forecast = await wf.fiveDayForecastByCityName(city);
-          forecast.forEach((forecaste){
-            print(forecast);
-          });
+          // forecast.forEach((forecaste){
+          //   print(forecast);
+          // });
           emit(WeatherForecasteSuccess(forecast));
         } catch (e) {
           emit(Weatherfail());

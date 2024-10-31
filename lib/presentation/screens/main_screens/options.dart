@@ -24,7 +24,7 @@ class _OptionsState extends State<Options> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        // backgroundColor: Colors.blue,
         title: const Text(
           "Locations",
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -77,7 +77,7 @@ class _OptionsState extends State<Options> {
           },
           focusNode: _focusNode,
           decoration: InputDecoration(
-            hintText: "Type your City Name...",
+            hintText: "Type Your City Name...",
             filled: true,
             fillColor: Colors.grey[200],
             border: OutlineInputBorder(

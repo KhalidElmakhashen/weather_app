@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:weather/weather.dart';
 
-import '../../locals/shared.dart';
+import '../../../locals/shared.dart';
 part 'weather_event.dart';
 part 'weather_state.dart';
 
