@@ -6,6 +6,7 @@ import 'package:weatherapi/logic/bloc/weather_bloc/weather_bloc.dart';
 import 'package:weatherapi/logic/utils/functions.dart';
 import 'package:weatherapi/main.dart';
 import 'package:weatherapi/presentation/screens/main_screens/options.dart';
+import 'package:weatherapi/presentation/widgets/bad_response_page.dart';
 import 'package:weatherapi/presentation/widgets/custom_list_forecaste.dart';
 import 'package:weatherapi/presentation/widgets/custom_row.dart';
 import 'package:weatherapi/presentation/widgets/custom_stack.dart';
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
     BlocProvider.of<WeatherBloc>(context);
     return Scaffold(
       appBar: AppBar(
@@ -30,7 +32,7 @@ class HomeScreen extends StatelessWidget {
           child: Text(
             "Weather App",
             style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 26, color: Colors.blue),
+                fontWeight: FontWeight.bold, fontSize: 26, color: isDark? Colors.orange[300] : Colors.blue),
           ),
         ),
         actions: [
@@ -47,7 +49,6 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       drawer: Drawer(
-        backgroundColor: Colors.blueGrey[50],
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView(
@@ -63,9 +64,9 @@ class HomeScreen extends StatelessWidget {
                       child: Icon(Icons.person),
                     ),
                     SizedBox(height: 15,),
-                    Text("Khalid A.Elmekhashen",style: TextStyle(fontWeight: FontWeight.bold),),
-                    Text("Sr.Flutter Developer",style: textTheme.headlineSmall?.copyWith(
-                      color: Colors.amber
+                    Text("Khalid A.Elmekhashen",style: textTheme.headlineSmall,),
+                    Text("Sr.Flutter Developer",style: textTheme.bodyLarge?.copyWith(
+                      color: isDark? Colors.amber : const Color.fromARGB(255, 33, 75, 243)
                     ),),
                   ],
                 ),
@@ -74,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                 thickness: 2,
               ),
               Card(
-                color: Colors.white.withOpacity(.8),
+                // color: Colors.white.withOpacity(.8),
                 child: ListTile(
                   leading: Text("Dark Mode",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                   trailing: Switch(
@@ -133,10 +134,12 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             );
-          } else {
-            return const Center(
+          } else if (state is WeatherFail){
+            return BadResponsePage();
+          }else {
+            return  Center(
                 child: CircularProgressIndicator(
-              color: Colors.blue,
+              color: isDark? Colors.orange : Colors.blue,
             ));
           }
         },

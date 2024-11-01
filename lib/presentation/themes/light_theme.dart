@@ -31,7 +31,7 @@ ThemeData lightMode = ThemeData(
   ///
   ///
   textTheme: const TextTheme(
-    headlineSmall: TextStyle(color: Colors.red),
+    headlineSmall: TextStyle(color: Colors.black),
   ),
   ///
   /// 
@@ -47,5 +47,8 @@ ThemeData lightMode = ThemeData(
   ///
   navigationBarTheme: const NavigationBarThemeData(
     backgroundColor: Colors.amber
+  ),
+  drawerTheme: DrawerThemeData(
+    backgroundColor: Colors.blueGrey[50],
   )
 );

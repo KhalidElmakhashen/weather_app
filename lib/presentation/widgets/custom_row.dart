@@ -45,6 +45,7 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       height: 145,
       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -55,7 +56,7 @@ class CustomCard extends StatelessWidget {
           Text(tittle,style: TextStyle(fontWeight: FontWeight.bold),),
           Container(
             decoration: BoxDecoration(
-              color: const Color(0xFFe2e7fa),
+              color: isDark? Colors.blueGrey[600] : const Color(0xFFe2e7fa),
               borderRadius: BorderRadius.circular(16),
             ),
             child: Image.asset(
@@ -64,7 +65,7 @@ class CustomCard extends StatelessWidget {
               height: 60,
             ),
           ),
-          Text(value,style: TextStyle(color: Colors.blue[400],fontWeight: FontWeight.bold),)
+          Text(value,style: TextStyle(color:  isDark? Colors.orange[100] : Colors.blue[400] ,fontWeight: FontWeight.bold),)
         ],
       ),
     );

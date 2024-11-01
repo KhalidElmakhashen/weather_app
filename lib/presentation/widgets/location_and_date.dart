@@ -1,12 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+
 class LocationAndDate extends StatelessWidget {
   final String location;
   final String day;
   final String date;
   final String month;
   final String time;
+
 
   const LocationAndDate({
     Key? key,
@@ -19,6 +21,7 @@ class LocationAndDate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  bool isDark = Theme.of(context).brightness == Brightness.dark;
     return Column(
       children: [
         Align(
@@ -36,7 +39,7 @@ class LocationAndDate extends StatelessWidget {
           child: Text(
             "${time}",
             style: TextStyle(
-              color: Colors.black.withOpacity(.5),
+              color: isDark? Colors.white:Colors.black.withOpacity(.5),
             ),
           ),
         ),
@@ -45,7 +48,7 @@ class LocationAndDate extends StatelessWidget {
           child: Text(
             "${day}, ${date} ${month}",
             style: TextStyle(
-              color: Colors.black.withOpacity(.5),
+              color: isDark? Colors.white:Colors.black.withOpacity(.5),
             ),
           ),
         ),

@@ -10,6 +10,7 @@ class CustomListForecaste extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
     BlocProvider.of<ForecasteBloc>(context);
     return BlocBuilder<ForecasteBloc, ForecasteState>(
         builder: (context, state) {
@@ -40,7 +41,7 @@ class CustomListForecaste extends StatelessWidget {
         return Container(
           margin: EdgeInsets.all(25),
           child: CircularProgressIndicator(
-            color: Colors.blue,
+            color: isDark? Colors.orange : Colors.blue,
           ),
         );
       }
@@ -58,10 +59,11 @@ class CustomCardList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       width: 100,
       decoration: BoxDecoration(
-        color: const Color(0xFFe2e7fa),
+        color: isDark?  Colors.blueGrey[800] : const Color(0xFFe2e7fa),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -70,11 +72,11 @@ class CustomCardList extends StatelessWidget {
           Image.asset('${image}'),
           FittedBox(
             child: Text(
-              "${tittle}",
+              "${tittle}",style: TextStyle(fontWeight: FontWeight.bold, color:isDark? Colors.orange[100]:Colors.black ),
             ),
             fit: BoxFit.scaleDown,
           ),
-          Text("$value")
+          Text("$value",style: TextStyle(fontWeight: FontWeight.bold,color: isDark? Colors.orange[100] : Colors.black),)
         ],
       ),
     );

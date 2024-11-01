@@ -1,5 +1,7 @@
 
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class CustomStack extends StatelessWidget {
@@ -17,13 +19,14 @@ class CustomStack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
     return Stack(
               clipBehavior: Clip.none,
               children: [
                 Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF9aaff2),
+                    color: isDark? Colors.blueGrey[900] : Color(0xFF9aaff2),
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
@@ -44,7 +47,7 @@ class CustomStack extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 92,
-                          color: const Color(0xFFa6c2ea)),
+                          color: isDark? Colors.orange[100] : const Color(0xFFa6c2ea)),
                     )),
                 Positioned(
                     top: -60,
@@ -62,7 +65,7 @@ class CustomStack extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 54,
-                          color: const Color(0xFFa6c2ea)),
+                          color: isDark? Colors.orange[100] : const Color(0xFFa6c2ea)),
                     )),
                 Positioned(
                     bottom: 20,
@@ -72,7 +75,7 @@ class CustomStack extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 36,
-                          color: Colors.white),
+                          color:isDark? Colors.orange[100] : Colors.white),
                     ))
               ],
             );

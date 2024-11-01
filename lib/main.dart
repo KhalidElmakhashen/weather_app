@@ -38,6 +38,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+    MyApp.themeManager.toggleTheme(Shared.getBOOL(key: "isDark"));
     MyApp.themeManager.addListener(themeListener);
     super.initState();
   }

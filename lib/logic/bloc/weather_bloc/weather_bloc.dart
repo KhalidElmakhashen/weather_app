@@ -19,7 +19,8 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
         Weather w = await wf.currentWeatherByCityName(city);
         emit(Weathersuccess(w));
       } catch (e) {
-        emit(Weatherfail());
+        print(e);
+        emit(WeatherFail());
       }
     });
     on<UpdateForecastData>((event, emit) async {

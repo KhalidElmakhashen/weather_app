@@ -17,7 +17,12 @@ static putString({required String key, required String value}){
   static getString({required String key}){
    return sharedPreferences.getString(key)?? " ";
 }
-
+  static putvar({required String key, required var value}){
+    sharedPreferences.noSuchMethod(value);
+  }
+  static getvar({required String key}){
+    return sharedPreferences.get(key);
+  }
 
   static putBOOL({required String key, required bool value}){
     sharedPreferences.setBool(key, value);

@@ -79,7 +79,7 @@ class _OptionsState extends State<Options> {
           decoration: InputDecoration(
             hintText: "Type Your City Name...",
             filled: true,
-            fillColor: Colors.grey[200],
+            // fillColor: Colors.grey[200],
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none,
